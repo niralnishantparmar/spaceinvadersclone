@@ -3,7 +3,6 @@ import random
 import sys
 import time
 
-
 WIDTH, HEIGHT = 600, 800
 FPS = 60
 MAX_LASERS = 6
@@ -18,13 +17,14 @@ screen = pygame.display.set_mode((WIDTH, HEIGHT))
 pygame.display.set_caption("Space invaders clone")
 clock = pygame.time.Clock()
 
-BLACK      = (0,   0,   0)
-WHITE      = (255, 255, 255)
-NEON_BLUE  = ( 50, 200, 255)
-NEON_PINK  = (255,  50, 200)
+BLACK = (0,   0,   0)
+WHITE = (255, 255, 255)
+NEON_BLUE = ( 50, 200, 255)
+NEON_PINK = (255,  50, 200)
 NEON_GREEN = ( 50, 255, 100)
 font_small = pygame.font.SysFont("Consolas", 28)
-font_large = pygame.font.SysFont("Consolas", 48)
+font_large = pygame.font.SysFont("Consolas", 48) #i <3 consolas fuck you verdana
+
 
 pygame.mixer.music.load("assets/fred3.wav")
 pygame.mixer.music.set_volume(0.5)
@@ -34,21 +34,20 @@ explosion_sound = pygame.mixer.Sound("assets/explosion.wav")
 laser_sound.set_volume(0.2)
 explosion_sound.set_volume(0.3)
 
-logo = pygame.image.load('assets/supercoollogofr.png')
-pygame.display.set_icon(logo)
-
+favicon = pygame.image.load('assets/supercoollogofr.png')
+pygame.display.set_icon(favicon)
 
 #yay much cool inits
-player       = pygame.Rect(WIDTH//2 - 20, HEIGHT - 80, 40, 40)
+player = pygame.Rect(WIDTH//2 - 20, HEIGHT - 80, 40, 40)
 player_speed = 6
-lasers       = []
-enemies      = []
-explosions   = []
-enemy_timer  = 0
-score        = 0
-high_score   = 0
-game_over    = False
-last_shot    = 0
+lasers = []
+enemies = []
+explosions = []
+enemy_timer = 0
+score = 0
+high_score = 0
+game_over = False
+last_shot = 0
 
 
 #do shit
@@ -125,6 +124,8 @@ while running:
             e.y += ENEMY_SPEED
             if e.top > HEIGHT:
                 game_over = True
+                #please work im begging
+            
             for l in lasers[:]:
                 if l.colliderect(e):
                     lasers.remove(l)
@@ -151,8 +152,8 @@ while running:
         retry_surf = font_small.render("Press R to Retry", True, WHITE)
         screen.blit(over_surf,  (WIDTH//2 - over_surf.get_width()//2, HEIGHT//2 - 60))
         screen.blit(retry_surf, (WIDTH//2 - retry_surf.get_width()//2, HEIGHT//2 + 10))
-        for ev in pygame.event.get():
-            if ev.type == pygame.QUIT:
+        for thing in pygame.event.get():
+            if thing.type == pygame.QUIT:
                 running = False
 
         if pygame.key.get_pressed()[pygame.K_r]:
