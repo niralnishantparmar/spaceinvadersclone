@@ -1,6 +1,6 @@
 # spaceinvadersclone
 
-i was bored.
+i was bored. pygame ensues.
 
 also triangles are the best shape and you can't convince me otherwise.
 
