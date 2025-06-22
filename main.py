@@ -23,7 +23,7 @@ NEON_BLUE = ( 50, 200, 255)
 NEON_PINK = (255,  50, 200)
 NEON_GREEN = ( 50, 255, 100)
 font_small = pygame.font.SysFont("Consolas", 28)
-font_large = pygame.font.SysFont("Consolas", 48) #i <3 consolas fuck you verdana
+font_large = pygame.font.SysFont("Consolas", 48) #i <3 consolas
 
 
 pygame.mixer.music.load("assets/fred3.wav")
